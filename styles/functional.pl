@@ -7,4 +7,4 @@ sub append_name {
 
 $name = append_name( $name, 'Berger' );
 
-print $name;
+print $name; # Joel Berger

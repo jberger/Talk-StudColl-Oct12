@@ -11,4 +11,4 @@ class Person {
 my $person = Person->new( name => 'Joel' );
 $person->append_name( 'Berger' );
 
-print $person->name;
+print $person->name; # Joel Berger

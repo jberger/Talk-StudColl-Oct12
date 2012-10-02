@@ -54,16 +54,37 @@
   \begin{block}{Procedural Programming}
     Functions are like tasks, acting on external variables
   \end{block}
-  \visible<2->{\inputcode{styles/procedural}}
-  \visible<3->{Depends on global variables}
+  \begin{columns}
+    \begin{column}{0.49\linewidth}
+      \uncover<2->{\inputcode{styles/procedural}}
+    \end{column}
+    \begin{column}{0.49\linewidth}
+      \begin{itemize}
+        \item[$+$]<3-> Code is simple (steps)
+        \item[$-$]<4-> Code is not reusable
+        \item[$-$]<5-> Depends on global variables
+        \item[$-$]<6-> Procedures are tied to certain variables
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Functional Programming}
   \begin{block}{Functional Programming}
     Functions are like transforms, taking inputs and returning results
   \end{block}
-  \visible<2->{\inputcode{styles/functional}}
-  \visible<3->{Lots of data to track}
+  \begin{columns}
+    \begin{column}{0.49\linewidth}
+      \uncover<2->{\inputcode{styles/functional}}
+    \end{column}
+    \begin{column}{0.49\linewidth}
+      \begin{itemize}
+        \item[$+$]<3-> Code is reusable
+        \item[$-$]<4-> Lots of data to track
+        \item[$-$]<5-> Must take care to manipulate the right data
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Object Oriented Programming}
@@ -74,6 +95,23 @@
 \end{frame}
 
 \section{Object Oriented Programming}
+
+\begin{frame}{Class Structure}
+  A \alert{Class} is a particular type of object. Classes have
+  \begin{itemize}
+    \item \alert{Attributes} - Internal data
+    \item \alert{Methods} - functions tied to the class/object
+    \item \alert{Accessor Methods} - special functions for accessing the attribute data
+  \end{itemize}
+
+  An individual object is said to be an \alert{Instance} of a certain class
+\end{frame}
+
+\begin{frame}{Subclasses}
+  A \alert{Subclass} is a class which redefines or adds on to a \alert{Parent} class. 
+
+  \inputcode{examples/student}
+\end{frame}
 
 \section{Physical Simulations}
 
