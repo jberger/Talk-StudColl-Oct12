@@ -1,4 +1,4 @@
-  method evolve ( MyThing $thing ) {
+  method evolve ( Thing $thing ) {
     my $dt = $self->step;
     my $vx = $thing->vx;
 
@@ -15,4 +15,4 @@
       $self->time( $self->time + $self->step );
     }
   }
-} # end of class MySim
+} # end of class Sim

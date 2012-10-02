@@ -1,4 +1,4 @@
-my $sim = MySim->new(
+my $sim = Sim->new(
   end => 5,
   things => [ $thing ],
   forces => [ $acc, $dec ],

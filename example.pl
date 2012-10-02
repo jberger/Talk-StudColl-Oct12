@@ -3,16 +3,15 @@
 use strict;
 use warnings;
 
-use MySim;
-use Data::Dumper;
+use Sim;
 use PDL;
 use PDL::Graphics::Prima::Simple;
 
-my $thing = MyThing->new(
+my $thing = Thing->new(
   mass => 2,
 );
 
-my $acc = MyForce->new(
+my $acc = Force->new(
   strength => 2,
   affect => sub {
     my ($self, $thing) = @_;
@@ -20,7 +19,7 @@ my $acc = MyForce->new(
   },
 );
 
-my $dec = MyForce->new(
+my $dec = Force->new(
   strength => -30,
   affect => sub {
     my ($self, $thing) = @_;
@@ -29,7 +28,7 @@ my $dec = MyForce->new(
   },
 );
 
-my $sim = MySim->new(
+my $sim = Sim->new(
   end => 5,
   things => [ $thing ],
   forces => [ $acc, $dec ],

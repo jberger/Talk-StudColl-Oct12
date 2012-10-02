@@ -1,17 +1,17 @@
 #!/usr/bin/env perl
 use strict; use warnings;
-use MySim;
+use Sim;
 use PDL;
 use PDL::Graphics::Prima::Simple;
 
-my $thing = MyThing->new( mass => 2 );
+my $thing = Thing->new( mass => 2 );
 
-my $acc = MyForce->new(
+my $acc = Force->new(
   strength => 2,
   affect => sub {shift->strength},
 );
 
-my $dec = MyForce->new(
+my $dec = Force->new(
   strength => -30,
   affect => sub {
     my ($self, $thing) = @_;

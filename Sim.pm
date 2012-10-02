@@ -3,7 +3,7 @@ use MooseX::RememberHistory;
 use MooseX::Declare;
 use Method::Signatures::Modifiers;
 
-class MySim {
+class Sim {
 
   use List::Util 'sum';
 
@@ -14,8 +14,8 @@ class MySim {
   has 'step'   => ( isa => 'Num', is => 'ro', lazy => 1, builder => 'init_step' );
   has 'time'   => ( traits => [ 'RememberHistory' ], isa => 'Num', is => 'rw', lazy => 1, builder => 'init_time' );
 
-  has 'things' => ( isa => 'ArrayRef[MyThing]', is => 'rw', default => sub{ [] } );
-  has 'forces' => ( isa => 'ArrayRef[MyForce]', is => 'rw', default => sub{ [] } );
+  has 'things' => ( isa => 'ArrayRef[Thing]', is => 'rw', default => sub{ [] } );
+  has 'forces' => ( isa => 'ArrayRef[Force]', is => 'rw', default => sub{ [] } );
 
   method init_step () {
     my $step = ($self->end - $self->start) / $self->steps;
@@ -24,7 +24,7 @@ class MySim {
 
   method init_time () { return $self->start }
 
-  method evolve ( MyThing $thing ) {
+  method evolve ( Thing $thing ) {
     my $dt = $self->step;
     my $vx = $thing->vx;
 
@@ -43,14 +43,14 @@ class MySim {
   }
 }
 
-class MyForce {
+class Force {
 
   has 'strength' => ( isa => 'Num',  is => 'rw', default => 0 );
   has 'affect'   => ( isa => 'CodeRef', is => 'ro', required => 1 );
   
 }
 
-class MyThing {
+class Thing {
 
   has 'mass' => ( isa => 'Num', is => 'ro', required => 1 );
   has 'x'    => ( traits => [ 'RememberHistory' ], isa => 'Num', is => 'rw', default => 0 );

@@ -1,4 +1,4 @@
-class MySim {
+class Sim {
   use List::Util 'sum';
 
   has 'start'  => ( isa => 'Num', is => 'ro', default => 0 );
@@ -9,8 +9,8 @@ class MySim {
   has 'time'   => ( traits => [ 'RememberHistory' ], isa => 'Num', is => 'rw', 
                     lazy => 1, builder => 'init_time' );
 
-  has 'things' => ( isa => 'ArrayRef[MyThing]', is => 'rw', default => sub{[]} );
-  has 'forces' => ( isa => 'ArrayRef[MyForce]', is => 'rw', default => sub{[]} );
+  has 'things' => ( isa => 'ArrayRef[Thing]', is => 'rw', default => sub{[]} );
+  has 'forces' => ( isa => 'ArrayRef[Force]', is => 'rw', default => sub{[]} );
 
   method init_step () {
     my $step = ($self->end - $self->start) / $self->steps;
