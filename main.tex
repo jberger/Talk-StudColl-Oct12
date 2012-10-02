@@ -1,0 +1,80 @@
+\documentclass[mathserif]{beamer}
+
+\usetheme[secheader]{Madrid}
+\setbeamercovered{transparent=50}
+
+\usepackage{tikz}
+%\usetikzlibrary{trees}
+\usepackage{url}
+\usepackage{graphicx}
+
+\usepackage{pygments}
+\usepackage{graphicx}
+
+\providecommand{\code}[1]{{\texttt{\scriptsize{#1}}}}
+\providecommand{\inputcode}[1]{
+  \begin{block}{}
+    \scriptsize{\input{#1}}
+  \end{block}
+}
+
+\title[OO Design]{Object Oriented Design for Physical Simulation}
+\author{Joel Berger}
+\institute[UIC]{University of Illinois at Chicago}
+\date{October 3, 2012}
+
+\begin{document}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\AtBeginSection{
+  \begin{frame}{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\section{Programming Styles}
+
+\begin{frame}{Programming Styles}
+  There are several common programming styles
+  \begin{itemize}
+    \item Procedural
+    \item Functional
+    \item Object Oriented
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Procedural Programming}
+  \begin{block}{Procedural Programming}
+    Functions are like tasks, acting on external variables
+  \end{block}
+  \visible<2->{\inputcode{styles/procedural}}
+  \visible<3->{Depends on global variables}
+\end{frame}
+
+\begin{frame}{Functional Programming}
+  \begin{block}{Functional Programming}
+    Functions are like transforms, taking inputs and returning results
+  \end{block}
+  \visible<2->{\inputcode{styles/functional}}
+  \visible<3->{Lots of data to track}
+\end{frame}
+
+\begin{frame}{Object Oriented Programming}
+  \begin{block}{Object Oriented Programming}
+    Objects have internal data, methods (functions) act on inputs and that data
+  \end{block}
+  \visible<2->{\inputcode{styles/objective}}
+\end{frame}
+
+\section{Object Oriented Programming}
+
+\section{Physical Simulations}
+
+\end{document}
