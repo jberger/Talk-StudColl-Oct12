@@ -39,15 +39,106 @@
   \end{frame}
 }
 
+\section{Motivation: Modeling an Ultrafast Electron Microscope}
+
+\begin{frame}{My Research: Ultrafast Electron Microscopy}
+  \input{hardware}
+\end{frame}
+
+\begin{frame}{The Challenge: A Flexible Interface to a Complex Model}
+  \input{schematic}
+  \begin{itemize}
+    \item<2-> Need: Compute dynamics of electron pulse ($w(t)$, $l(t)$)
+    \item<3-> Note: Generation and optical elements add terms to DE
+    \item<4-> Want: Representitive OO user-level interface
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The ``State of the Art''}
+  Old codes are
+  \begin{itemize}
+    \item lacking full 6D dynamics
+    \item optimized for performance vs usablilty
+    \item hard to customize
+    \item near impossible to comprehend
+  \end{itemize}
+  \begin{block}<2->{\url{http://laacg.lanl.gov/laacg/services/download_sf.phtml}}
+    \textbf{Getting Started with Poisson Superfish}\\
+    \ldots We do not recommend trying to build an input file ``from scratch.'' Instead, find an example file that is similar to the problem you are trying to solve. Make a copy of the file and then make any necessary modifications to the geometry and options.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Other Attempts}
+  \begin{columns}
+    \begin{column}{0.49\linewidth}
+      Mathematica:\\
+      Pros:
+      \uncover<2->{
+      \begin{itemize}
+        \item Can solve dynamics
+        \item Pretty-printing of math for readability
+      \end{itemize}
+      }
+      Cons:
+      \uncover<3->{
+      \begin{itemize}
+        \item Closed-source and expensive!
+        \item Only Functional/Procedural style
+        \item No OO and no key-value datatypes
+        \item Still rather slow $\sim$2mins$/$sim
+      \end{itemize}
+      }
+    \end{column}
+    \begin{column}{0.49\linewidth}
+      Modelica:\\
+      Pros:
+      \uncover<4->{
+      \begin{itemize}
+        \item Open-source, but behind close-source variants
+        \item Unique OO language for physical simulation
+        \item Classes have DEs as properties
+      \end{itemize}
+      }
+      Cons:
+      \uncover<5->{
+      \begin{itemize}
+        \item Lacks ``has-a'' relationship
+        \item Composing DEs not trivial
+        \item User-facing object instantiation not trivial
+        \item Some numerical problems (?)
+      \end{itemize}
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
+
 \section{Programming Styles}
 
 \begin{frame}{Programming Styles}
   There are several common programming styles
   \begin{itemize}
-    \item Procedural
     \item Functional
+    \item Procedural
     \item Object Oriented
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Functional Programming}
+  \begin{block}{Functional Programming}
+    Functions are like transforms, taking inputs and returning results
+  \end{block}
+  \begin{columns}
+    \begin{column}{0.49\linewidth}
+      \uncover<2->{\inputcode{styles/functional}}
+    \end{column}
+    \begin{column}{0.49\linewidth}
+      \begin{itemize}
+        \item[$+$]<3-> Code is reusable
+        \item[$-$]<4-> Lots of data to track
+        \item[$-$]<5-> Must take care to manipulate the right data
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Procedural Programming}
@@ -64,24 +155,6 @@
         \item[$-$]<4-> Code is not reusable
         \item[$-$]<5-> Depends on global variables
         \item[$-$]<6-> Procedures are tied to certain variables
-      \end{itemize}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}{Functional Programming}
-  \begin{block}{Functional Programming}
-    Functions are like transforms, taking inputs and returning results
-  \end{block}
-  \begin{columns}
-    \begin{column}{0.49\linewidth}
-      \uncover<2->{\inputcode{styles/functional}}
-    \end{column}
-    \begin{column}{0.49\linewidth}
-      \begin{itemize}
-        \item[$+$]<3-> Code is reusable
-        \item[$-$]<4-> Lots of data to track
-        \item[$-$]<5-> Must take care to manipulate the right data
       \end{itemize}
     \end{column}
   \end{columns}
@@ -152,77 +225,7 @@
   \end{columns}
 \end{frame}
 
-\subsection{My Research: Ultrafast Electron Mircoscopy}
-
-\begin{frame}{My Research: Ultrafast Electron Microscopy}
-  \input{hardware}
-\end{frame}
-
-\begin{frame}{The Challenge: A Flexible Interface to a Complex Model}
-  \input{schematic}
-  \begin{itemize}
-    \item<2-> Need: Compute dynamics of electron pulse ($w(t)$, $l(t)$)
-    \item<3-> Note: Generation and optical elements add terms to DE
-    \item<4-> Want: Representitive OO user-level interface
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{The ``State of the Art''}
-  Old codes are
-  \begin{itemize}
-    \item lacking full 6D dynamics
-    \item optimized for performance vs usablilty
-    \item hard to customize
-    \item near impossible to comprehend
-  \end{itemize}
-  \begin{block}<2->{\url{http://laacg.lanl.gov/laacg/services/download_sf.phtml}}
-    \textbf{Getting Started with Poisson Superfish}\\
-    \ldots We do not recommend trying to build an input file ``from scratch.'' Instead, find an example file that is similar to the problem you are trying to solve. Make a copy of the file and then make any necessary modifications to the geometry and options.
-  \end{block}
-\end{frame}
-
-\begin{frame}{Other Attempts}
-  \begin{columns}
-    \begin{column}{0.49\linewidth}
-      Mathematica:\\
-      Pros:
-      \uncover<2->{
-      \begin{itemize}
-        \item Can solve dynamics
-        \item Pretty-printing of math for readability
-      \end{itemize}
-      }
-      Cons:
-      \uncover<3->{
-      \begin{itemize}
-        \item Closed-source and expensive!
-        \item No OO and no key-value datatypes
-        \item Still rather slow $\sim$2mins$/$sim
-      \end{itemize}
-      }
-    \end{column}
-    \begin{column}{0.49\linewidth}
-      Modelica:\\
-      Pros:
-      \uncover<4->{
-      \begin{itemize}
-        \item Open-source, but behind close-source variants
-        \item Unique OO language for physical simulation
-        \item Classes have DEs as properties
-      \end{itemize}
-      }
-      Cons:
-      \uncover<5->{
-      \begin{itemize}
-        \item Lacks ``has-a'' relationship
-        \item Composing DEs not trivial
-        \item User-facing object instantiation not trivial
-        \item Some numerical problems (?)
-      \end{itemize}
-      }
-    \end{column}
-  \end{columns}
-\end{frame}
+\subsection{My Simulation}
 
 \begin{frame}{Example of \texttt{Physics::UEMColumn}}
   Back to Electron Column Modeling

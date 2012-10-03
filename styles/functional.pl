@@ -1,10 +1,10 @@
 my $name = 'Joel';
 
-sub append_name {
-  my ($name, $append) = @_;
-  return $name . ' ' . $append;
+sub join_names {
+  my ($first, $last) = @_;
+  return $first . ' ' . $last;
 }
 
-$name = append_name( $name, 'Berger' );
+$name = join_names( $name, 'Berger' );
 
 print $name; # Joel Berger
